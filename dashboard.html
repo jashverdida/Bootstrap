@@ -7,28 +7,289 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="index.html">My Bootstrap Site</a>
 				<div class="collapse navbar-collapse">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+						<li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-		<div class="container mt-5">
-			<div class="row justify-content-center">
-				<div class="col-md-8">
-					<div class="card shadow-sm">
+		<!-- Hero Section with Background Image -->
+		<div class="text-white py-5 mb-5 position-relative overflow-hidden" style="min-height: 500px;">
+			<img src="https://images.unsplash.com/photo-1503942142281-94af0aded523?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+				 class="position-absolute top-0 start-0 w-100 h-100" 
+				 style="object-fit: cover; z-index: 1;" 
+				 alt="Dashboard Background">
+			<div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)); z-index: 2;"></div>
+			<div class="container position-relative" style="z-index: 3;">
+				<div class="row justify-content-center text-center align-items-center" style="min-height: 400px;">
+					<div class="col-lg-8">
+						<h1 class="display-4 fw-bold mb-3">Welcome to your Dashboard!</h1>
+						<p class="lead mb-4">Manage your account, view analytics, and explore our services all in one place.</p>
+						<button class="btn btn-light btn-lg me-3">Get Started</button>
+						<button class="btn btn-outline-light btn-lg">Learn More</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Main Dashboard Content -->
+		<div class="container">
+			<!-- Stats Cards Row -->
+			<div class="row g-4 mb-5">
+				<div class="col-md-3">
+					<div class="card border-0 shadow-sm h-100">
 						<div class="card-body text-center">
-							<h2 class="card-title mb-3">Welcome to your Dashboard!</h2>
-							<p class="card-text">You are now logged in. Use the navigation bar to explore the site.</p>
+							<div class="bg-primary bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+								<i class="text-white" style="font-size: 24px;">📊</i>
+							</div>
+							<h5 class="card-title">Analytics</h5>
+							<h3 class="text-primary mb-0">2,543</h3>
+							<small class="text-muted">Total Views</small>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card border-0 shadow-sm h-100">
+						<div class="card-body text-center">
+							<div class="bg-success bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+								<i class="text-white" style="font-size: 24px;">👥</i>
+							</div>
+							<h5 class="card-title">Users</h5>
+							<h3 class="text-success mb-0">1,247</h3>
+							<small class="text-muted">Active Users</small>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card border-0 shadow-sm h-100">
+						<div class="card-body text-center">
+							<div class="bg-warning bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+								<i class="text-white" style="font-size: 24px;">💰</i>
+							</div>
+							<h5 class="card-title">Revenue</h5>
+							<h3 class="text-warning mb-0">$12,890</h3>
+							<small class="text-muted">This Month</small>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card border-0 shadow-sm h-100">
+						<div class="card-body text-center">
+							<div class="bg-info bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+								<i class="text-white" style="font-size: 24px;">📈</i>
+							</div>
+							<h5 class="card-title">Growth</h5>
+							<h3 class="text-info mb-0">+24%</h3>
+							<small class="text-muted">vs Last Month</small>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Feature Cards with Images -->
+			<div class="row g-4 mb-5">
+				<div class="col-lg-4">
+					<div class="card border-0 shadow-sm h-100">
+						<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Analytics" style="height: 200px; object-fit: cover;">
+						<div class="card-body">
+							<h5 class="card-title">Advanced Analytics</h5>
+							<p class="card-text">Get detailed insights into your business performance with our comprehensive analytics dashboard.</p>
+							<a href="#" class="btn btn-primary">View Details</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="card border-0 shadow-sm h-100">
+						<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Team Collaboration" style="height: 200px; object-fit: cover;">
+						<div class="card-body">
+							<h5 class="card-title">Team Collaboration</h5>
+							<p class="card-text">Work together seamlessly with your team using our collaborative tools and real-time updates.</p>
+							<a href="#" class="btn btn-success">Get Started</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="card border-0 shadow-sm h-100">
+						<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Data Security" style="height: 200px; object-fit: cover;">
+						<div class="card-body">
+							<h5 class="card-title">Data Security</h5>
+							<p class="card-text">Your data is protected with enterprise-grade security measures and encryption protocols.</p>
+							<a href="#" class="btn btn-warning">Learn More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Text with Image Section -->
+			<div class="row align-items-center mb-5">
+				<div class="col-lg-6 mb-4 mb-lg-0">
+					<img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="img-fluid rounded shadow" alt="Dashboard Preview">
+				</div>
+				<div class="col-lg-6">
+					<div class="ps-lg-4">
+						<h2 class="display-6 mb-3">Powerful Dashboard Features</h2>
+						<p class="lead mb-4">Our dashboard provides you with all the tools you need to manage your business effectively and make data-driven decisions.</p>
+						<ul class="list-unstyled">
+							<li class="mb-2"><i class="text-primary me-2">✓</i> Real-time data visualization</li>
+							<li class="mb-2"><i class="text-primary me-2">✓</i> Customizable widgets and layouts</li>
+							<li class="mb-2"><i class="text-primary me-2">✓</i> Advanced filtering and sorting</li>
+							<li class="mb-2"><i class="text-primary me-2">✓</i> Export data in multiple formats</li>
+							<li class="mb-2"><i class="text-primary me-2">✓</i> Mobile-responsive design</li>
+						</ul>
+						<button class="btn btn-primary btn-lg">Explore Features</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Card Layout with Background and Spacing -->
+			<div class="row g-4 mb-5">
+				<div class="col-lg-6">
+					<div class="card text-white border-0 shadow-lg h-100" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white !important;">
+						<div class="card-body p-5">
+							<h3 class="card-title mb-3" style="color: white;">Premium Features</h3>
+							<p class="card-text mb-4" style="color: white;">Unlock advanced functionality with our premium plan. Get access to exclusive features and priority support.</p>
+							<ul class="list-unstyled mb-4" style="color: white;">
+								<li class="mb-2">• Advanced reporting tools</li>
+								<li class="mb-2">• Priority customer support</li>
+								<li class="mb-2">• Custom integrations</li>
+								<li class="mb-2">• Extended data history</li>
+							</ul>
+							<button class="btn btn-light btn-lg">Upgrade Now</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="card text-white border-0 shadow-lg h-100" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white !important;">
+						<div class="card-body p-5">
+							<h3 class="card-title mb-3" style="color: white;">24/7 Support</h3>
+							<p class="card-text mb-4" style="color: white;">Our dedicated support team is available around the clock to help you with any questions or issues you may have.</p>
+							<ul class="list-unstyled mb-4" style="color: white;">
+								<li class="mb-2">• Live chat support</li>
+								<li class="mb-2">• Email assistance</li>
+								<li class="mb-2">• Phone support</li>
+								<li class="mb-2">• Knowledge base access</li>
+							</ul>
+							<button class="btn btn-light btn-lg">Contact Support</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Recent Activity Card -->
+			<div class="row justify-content-center mb-5">
+				<div class="col-lg-8">
+					<div class="card border-0 shadow-sm">
+						<div class="card-header bg-white py-3">
+							<h5 class="card-title mb-0">Recent Activity</h5>
+						</div>
+						<div class="card-body">
+							<div class="d-flex align-items-center mb-3">
+								<div class="bg-primary rounded-circle me-3" style="width: 40px; height: 40px;"></div>
+								<div>
+									<h6 class="mb-1">New user registration</h6>
+									<small class="text-muted">2 minutes ago</small>
+								</div>
+							</div>
+							<div class="d-flex align-items-center mb-3">
+								<div class="bg-success rounded-circle me-3" style="width: 40px; height: 40px;"></div>
+								<div>
+									<h6 class="mb-1">Payment received</h6>
+									<small class="text-muted">15 minutes ago</small>
+								</div>
+							</div>
+							<div class="d-flex align-items-center mb-3">
+								<div class="bg-warning rounded-circle me-3" style="width: 40px; height: 40px;"></div>
+								<div>
+									<h6 class="mb-1">System update completed</h6>
+									<small class="text-muted">1 hour ago</small>
+								</div>
+							</div>
+							<div class="text-center">
+								<a href="#" class="btn btn-outline-primary">View All Activity</a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		
+		<!-- Footer -->
+		<footer class="bg-dark text-white py-5 mt-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 mb-4 mb-lg-0">
+						<h5 class="mb-3">My Bootstrap Site</h5>
+						<p class="text-light">Building amazing web experiences with Bootstrap. Your trusted partner for modern web development and design solutions.</p>
+						<div class="social-links">
+							<a href="#" class="text-white me-3" style="text-decoration: none;"><i style="font-size: 20px;">📘</i></a>
+							<a href="#" class="text-white me-3" style="text-decoration: none;"><i style="font-size: 20px;">🐦</i></a>
+							<a href="#" class="text-white me-3" style="text-decoration: none;"><i style="font-size: 20px;">💼</i></a>
+							<a href="#" class="text-white" style="text-decoration: none;"><i style="font-size: 20px;">📷</i></a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+						<h6 class="mb-3">Quick Links</h6>
+						<ul class="list-unstyled">
+							<li><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+							<li><a href="about.html" class="text-light text-decoration-none">About</a></li>
+							<li><a href="dashboard.html" class="text-light text-decoration-none">Dashboard</a></li>
+							<li><a href="#" class="text-light text-decoration-none">Services</a></li>
+							<li><a href="#" class="text-light text-decoration-none">Contact</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+						<h6 class="mb-3">Support</h6>
+						<ul class="list-unstyled">
+							<li><a href="#" class="text-light text-decoration-none">Help Center</a></li>
+							<li><a href="#" class="text-light text-decoration-none">Documentation</a></li>
+							<li><a href="#" class="text-light text-decoration-none">Community</a></li>
+							<li><a href="#" class="text-light text-decoration-none">Contact Support</a></li>
+							<li><a href="#" class="text-light text-decoration-none">Status Page</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+						<h6 class="mb-3">Legal</h6>
+						<ul class="list-unstyled">
+							<li><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+							<li><a href="#" class="text-light text-decoration-none">Terms of Service</a></li>
+							<li><a href="#" class="text-light text-decoration-none">Cookie Policy</a></li>
+							<li><a href="#" class="text-light text-decoration-none">GDPR</a></li>
+							<li><a href="#" class="text-light text-decoration-none">Disclaimer</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-2 col-md-6">
+						<h6 class="mb-3">Newsletter</h6>
+						<p class="text-light small">Subscribe to get updates and news about our latest features.</p>
+						<div class="input-group mb-3">
+							<input type="email" class="form-control" placeholder="Your email">
+							<button class="btn btn-primary" type="button">Subscribe</button>
+						</div>
+					</div>
+				</div>
+				<hr class="my-4" style="border-color: #495057;">
+				<div class="row align-items-center">
+					<div class="col-md-6">
+						<p class="text-light mb-0">&copy; 2025 My Bootstrap Site. All rights reserved.</p>
+					</div>
+					<div class="col-md-6 text-md-end">
+						<ul class="list-inline mb-0">
+							<li class="list-inline-item"><a href="#" class="text-light text-decoration-none small">Privacy Policy</a></li>
+							<li class="list-inline-item"><span class="text-muted">|</span></li>
+							<li class="list-inline-item"><a href="#" class="text-light text-decoration-none small">Terms of Service</a></li>
+							<li class="list-inline-item"><span class="text-muted">|</span></li>
+							<li class="list-inline-item"><a href="#" class="text-light text-decoration-none small">Cookies</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
