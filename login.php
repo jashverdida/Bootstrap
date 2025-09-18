@@ -50,22 +50,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Login</title>
+		<title>ELPHP-JASH - Login</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="index.html">My Bootstrap Site</a>
+				<a class="navbar-brand" href="index.php">ELPHP-JASH</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav ms-auto">
-						<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-						<li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
-						<li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+						<li class="nav-item"><a class="nav-link active" href="login.php">Login</a></li>
+						<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
 					</ul>
 				</div>
 			</div>
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 								
 								<div class="text-center">
 									<span class="text-muted small">Don't have an account? </span>
-									<a href="register.html" class="text-decoration-none">Sign up</a>
+									<a href="register.php" class="text-decoration-none">Sign up</a>
 								</div>
 								<div class="mt-3 text-center">
 									<small class="text-info">Enter any valid email and password (3+ characters) to login</small>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bootstrap Practice</title>
+	<title>ELPHP-JASH</title>
 	<!-- Bootstrap CSS CDN -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -11,23 +11,23 @@
 		<!-- Header --> 
 		<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
 					<div class="container-fluid">
-						<a class="navbar-brand" href="#">JASH</a>
+						<a class="navbar-brand" href="#">ELPHP-JASH</a>
 						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
 						<div class="collapse navbar-collapse" id="navbarNav">
 							<ul class="navbar-nav ms-auto">
 								<li class="nav-item">
-									<a class="nav-link active" aria-current="page" href="#">Home</a>
+									<a class="nav-link active" aria-current="page" href="index.php">Home</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="about.html">About</a>
+									<a class="nav-link" href="about.php">About</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="login.html">Login</a>
+									<a class="nav-link" href="login.php">Login</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="register.html">Register</a>
+									<a class="nav-link" href="register.php">Register</a>
 								</li>
 							</ul>
 						</div>
@@ -47,8 +47,8 @@
 						<h1 class="display-2 fw-bold mb-4">Build Amazing Websites</h1>
 						<p class="lead fs-4 mb-5">Create responsive, mobile-first projects with Bootstrap - the world's most popular front-end component library.</p>
 						<div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-							<a href="register.html" class="btn btn-light btn-lg px-5 py-3">Get Started Free</a>
-							<a href="about.html" class="btn btn-outline-light btn-lg px-5 py-3">Learn More</a>
+							<a href="register.php" class="btn btn-light btn-lg px-5 py-3">Get Started Free</a>
+							<a href="about.php" class="btn btn-outline-light btn-lg px-5 py-3">Learn More</a>
 						</div>
 						<div class="mt-5">
 							<small class="opacity-75">Join over 1 million developers worldwide</small>
@@ -155,7 +155,7 @@
 								<li class="mb-2"><i class="text-primary me-2">✓</i> Modals and tooltips</li>
 								<li class="mb-2"><i class="text-primary me-2">✓</i> And much more...</li>
 							</ul>
-							<a href="dashboard.html" class="btn btn-primary btn-lg">View Dashboard</a>
+							<a href="dashboard.php" class="btn btn-primary btn-lg">View Dashboard</a>
 						</div>
 					</div>
 				</div>
@@ -174,7 +174,7 @@
 								<li class="mb-2"><i class="text-success me-2">✓</i> Easy handoffs</li>
 								<li class="mb-2"><i class="text-success me-2">✓</i> Version control friendly</li>
 							</ul>
-							<a href="about.html" class="btn btn-success btn-lg">Learn More</a>
+							<a href="about.php" class="btn btn-success btn-lg">Learn More</a>
 						</div>
 					</div>
 				</div>
@@ -263,8 +263,8 @@
 						<h2 class="display-5 fw-bold mb-3">Ready to Get Started?</h2>
 						<p class="lead mb-4">Join millions of developers who are already building amazing websites with Bootstrap.</p>
 						<div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-							<a href="register.html" class="btn btn-light btn-lg px-5">Start Building</a>
-							<a href="login.html" class="btn btn-outline-light btn-lg px-5">Sign In</a>
+							<a href="register.php" class="btn btn-light btn-lg px-5">Start Building</a>
+							<a href="login.php" class="btn btn-outline-light btn-lg px-5">Sign In</a>
 						</div>
 					</div>
 				</div>
@@ -277,7 +277,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-4 mb-4 mb-lg-0">
-						<h5 class="mb-3">My Bootstrap Site</h5>
+						<h5 class="mb-3">ELPHP-JASH</h5>
 						<p class="text-light">Building amazing web experiences with Bootstrap. Your trusted partner for modern web development and design solutions.</p>
 						<div class="social-links">
 							<a href="#" class="text-white me-3" style="text-decoration: none;"><i style="font-size: 20px;">📘</i></a>
@@ -289,11 +289,11 @@
 					<div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
 						<h6 class="mb-3">Quick Links</h6>
 						<ul class="list-unstyled">
-							<li><a href="index.html" class="text-light text-decoration-none">Home</a></li>
-							<li><a href="about.html" class="text-light text-decoration-none">About</a></li>
-							<li><a href="dashboard.html" class="text-light text-decoration-none">Dashboard</a></li>
-							<li><a href="login.html" class="text-light text-decoration-none">Login</a></li>
-							<li><a href="register.html" class="text-light text-decoration-none">Register</a></li>
+							<li><a href="index.php" class="text-light text-decoration-none">Home</a></li>
+							<li><a href="about.php" class="text-light text-decoration-none">About</a></li>
+							<li><a href="dashboard.php" class="text-light text-decoration-none">Dashboard</a></li>
+							<li><a href="login.php" class="text-light text-decoration-none">Login</a></li>
+							<li><a href="register.php" class="text-light text-decoration-none">Register</a></li>
 						</ul>
 					</div>
 					<div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
@@ -328,7 +328,7 @@
 				<hr class="my-4" style="border-color: #495057;">
 				<div class="row align-items-center">
 					<div class="col-md-6">
-						<p class="text-light mb-0">&copy; 2025 My Bootstrap Site. All rights reserved.</p>
+						<p class="text-light mb-0">&copy; 2025 ELPHP-JASH. All rights reserved.</p>
 					</div>
 					<div class="col-md-6 text-md-end">
 						<ul class="list-inline mb-0">

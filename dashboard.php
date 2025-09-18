@@ -3,17 +3,17 @@
 <head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Dashboard</title>
+		<title>ELPHP-JASH - Dashboard</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="index.html">My Bootstrap Site</a>
+				<a class="navbar-brand" href="index.php">ELPHP-JASH</a>
 				<div class="collapse navbar-collapse">
 					<ul class="navbar-nav ms-auto">
-						<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
 						<li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
 					</ul>
 				</div>
