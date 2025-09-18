@@ -44,14 +44,14 @@
 			<div class="container position-relative" style="z-index: 3;">
 				<div class="row align-items-center justify-content-center text-center" style="min-height: 500px;">
 					<div class="col-lg-10">
-						<h1 class="display-2 fw-bold mb-4">Build Amazing Websites</h1>
-						<p class="lead fs-4 mb-5">Create responsive, mobile-first projects with Bootstrap - the world's most popular front-end component library.</p>
+						<h1 class="display-2 fw-bold mb-4">Your Friendly Neighborhood Spider-Man</h1>
+						<p class="lead fs-4 mb-5">With great power comes great responsibility. Join Spider-Man as he swings through New York City protecting the innocent.</p>
 						<div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
 							<a href="register.php" class="btn btn-light btn-lg px-5 py-3">Get Started Free</a>
 							<a href="about.php" class="btn btn-outline-light btn-lg px-5 py-3">Learn More</a>
 						</div>
 						<div class="mt-5">
-							<small class="opacity-75">Join over 1 million developers worldwide</small>
+							<small class="opacity-75">Join over 1 million Spider-Man fans worldwide</small>
 						</div>
 					</div>
 				</div>
@@ -63,8 +63,8 @@
 			<div class="container">
 				<div class="row text-center mb-5">
 					<div class="col-lg-8 mx-auto">
-						<h2 class="display-5 fw-bold mb-3">Why Choose Bootstrap?</h2>
-						<p class="lead text-muted">Powerful features that make web development faster and easier</p>
+						<h2 class="display-5 fw-bold mb-3">Why Choose Spider-Man?</h2>
+						<p class="lead text-muted">Amazing powers and heroic qualities that make him the ultimate superhero</p>
 					</div>
 				</div>
 				<div class="row g-4">
@@ -74,8 +74,8 @@
 								<div class="bg-primary bg-gradient rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
 									<i class="text-white" style="font-size: 32px;">📱</i>
 								</div>
-								<h4 class="card-title mb-3">Responsive Design</h4>
-								<p class="card-text text-muted">Built with mobile-first approach, ensuring your site looks perfect on all devices and screen sizes.</p>
+								<h4 class="card-title mb-3">Spider Sense</h4>
+								<p class="card-text text-muted">Enhanced awareness that alerts Spider-Man to danger, keeping him one step ahead of villains.</p>
 							</div>
 						</div>
 					</div>
@@ -85,8 +85,8 @@
 								<div class="bg-success bg-gradient rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
 									<i class="text-white" style="font-size: 32px;">⚡</i>
 								</div>
-								<h4 class="card-title mb-3">Fast Development</h4>
-								<p class="card-text text-muted">Pre-built components and utilities help you build websites faster than ever before.</p>
+								<h4 class="card-title mb-3">Super Strength</h4>
+								<p class="card-text text-muted">Incredible strength allowing Spider-Man to lift up to 10 tons and overpower most enemies.</p>
 							</div>
 						</div>
 					</div>
@@ -96,8 +96,8 @@
 								<div class="bg-warning bg-gradient rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
 									<i class="text-white" style="font-size: 32px;">🎨</i>
 								</div>
-								<h4 class="card-title mb-3">Customizable</h4>
-								<p class="card-text text-muted">Easily customize every aspect with Sass variables and extensive theming options.</p>
+								<h4 class="card-title mb-3">Web Slinging</h4>
+								<p class="card-text text-muted">Amazing ability to swing through New York City using web shooters and incredible acrobatic skills.</p>
 							</div>
 						</div>
 					</div>
@@ -111,26 +111,26 @@
 				<div class="row g-4 text-center">
 					<div class="col-lg-3 col-md-6">
 						<div class="stat-item">
+							<h2 class="display-4 fw-bold mb-0">15+</h2>
+							<p class="mb-0">Years Protecting NYC</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<div class="stat-item">
+							<h2 class="display-4 fw-bold mb-0">500+</h2>
+							<p class="mb-0">Villains Defeated</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<div class="stat-item">
 							<h2 class="display-4 fw-bold mb-0">1M+</h2>
-							<p class="mb-0">Active Developers</p>
+							<p class="mb-0">Lives Saved</p>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-6">
 						<div class="stat-item">
-							<h2 class="display-4 fw-bold mb-0">50K+</h2>
-							<p class="mb-0">GitHub Stars</p>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="stat-item">
-							<h2 class="display-4 fw-bold mb-0">180</h2>
-							<p class="mb-0">Countries</p>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="stat-item">
-							<h2 class="display-4 fw-bold mb-0">99%</h2>
-							<p class="mb-0">Satisfaction</p>
+							<h2 class="display-4 fw-bold mb-0">100%</h2>
+							<p class="mb-0">Hero Rating</p>
 						</div>
 					</div>
 				</div>
@@ -146,13 +146,13 @@
 					</div>
 					<div class="col-lg-6 order-lg-1">
 						<div class="pe-lg-5">
-							<h2 class="display-6 mb-3">Powerful Components</h2>
-							<p class="lead mb-4">Build complex layouts with ease using our comprehensive library of pre-built components.</p>
+							<h2 class="display-6 mb-3">Amazing Spider Powers</h2>
+							<p class="lead mb-4">Discover the incredible abilities that make Spider-Man one of the greatest superheroes of all time.</p>
 							<ul class="list-unstyled">
-								<li class="mb-2"><i class="text-primary me-2">✓</i> Navigation bars and breadcrumbs</li>
-								<li class="mb-2"><i class="text-primary me-2">✓</i> Cards and media objects</li>
-								<li class="mb-2"><i class="text-primary me-2">✓</i> Forms and input groups</li>
-								<li class="mb-2"><i class="text-primary me-2">✓</i> Modals and tooltips</li>
+								<li class="mb-2"><i class="text-primary me-2">✓</i> Wall-crawling abilities</li>
+								<li class="mb-2"><i class="text-primary me-2">✓</i> Enhanced reflexes and agility</li>
+								<li class="mb-2"><i class="text-primary me-2">✓</i> Organic web shooters</li>
+								<li class="mb-2"><i class="text-primary me-2">✓</i> Precognitive spider-sense</li>
 								<li class="mb-2"><i class="text-primary me-2">✓</i> And much more...</li>
 							</ul>
 							<a href="dashboard.php" class="btn btn-primary btn-lg">View Dashboard</a>
@@ -166,13 +166,13 @@
 					</div>
 					<div class="col-lg-6">
 						<div class="ps-lg-5">
-							<h2 class="display-6 mb-3">Team Collaboration</h2>
-							<p class="lead mb-4">Work seamlessly with your team using consistent design patterns and shared component libraries.</p>
+							<h2 class="display-6 mb-3">Hero Team-Up</h2>
+							<p class="lead mb-4">Join forces with other heroes and work together to protect the world from evil villains and threats.</p>
 							<ul class="list-unstyled">
-								<li class="mb-2"><i class="text-success me-2">✓</i> Consistent design system</li>
-								<li class="mb-2"><i class="text-success me-2">✓</i> Shared components</li>
-								<li class="mb-2"><i class="text-success me-2">✓</i> Easy handoffs</li>
-								<li class="mb-2"><i class="text-success me-2">✓</i> Version control friendly</li>
+								<li class="mb-2"><i class="text-success me-2">✓</i> Avengers membership</li>
+								<li class="mb-2"><i class="text-success me-2">✓</i> Fantastic Four ally</li>
+								<li class="mb-2"><i class="text-success me-2">✓</i> X-Men collaboration</li>
+								<li class="mb-2"><i class="text-success me-2">✓</i> Solo hero missions</li>
 							</ul>
 							<a href="about.php" class="btn btn-success btn-lg">Learn More</a>
 						</div>
@@ -186,8 +186,8 @@
 			<div class="container">
 				<div class="row text-center mb-5">
 					<div class="col-lg-8 mx-auto">
-						<h2 class="display-5 fw-bold mb-3">What Developers Say</h2>
-						<p class="lead text-muted">Trusted by developers and companies worldwide</p>
+						<h2 class="display-5 fw-bold mb-3">What Fans Say</h2>
+						<p class="lead text-muted">Loved by fans and fellow superheroes worldwide</p>
 					</div>
 				</div>
 				<div class="row g-4">
@@ -197,15 +197,15 @@
 								<div class="mb-3">
 									<span class="text-warning">★★★★★</span>
 								</div>
-								<p class="card-text mb-4">"Bootstrap has completely transformed how I build websites. The grid system and components are incredibly intuitive."</p>
+								<p class="card-text mb-4">"Spider-Man is the greatest superhero ever! His wit, courage, and amazing powers make him truly spectacular."</p>
 								<div class="d-flex align-items-center">
 									<img src="https://images.unsplash.com/photo-1521714161819-15534968fc5f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
 										 class="rounded-circle me-3" 
 										 style="width: 50px; height: 50px; object-fit: cover;" 
 										 alt="Sarah Johnson">
 									<div>
-										<h6 class="mb-0">Sarah Johnson</h6>
-										<small class="text-muted">Frontend Developer</small>
+										<h6 class="mb-0">Mary Jane Watson</h6>
+										<small class="text-muted">Daily Bugle Reporter</small>
 									</div>
 								</div>
 							</div>
@@ -217,15 +217,15 @@
 								<div class="mb-3">
 									<span class="text-warning">★★★★★</span>
 								</div>
-								<p class="card-text mb-4">"The responsive features are outstanding. My sites look perfect on every device without extra effort."</p>
+								<p class="card-text mb-4">"Amazing wall-crawling abilities! Spider-Man always saves the day when New York City needs him most."</p>
 								<div class="d-flex align-items-center">
 									<img src="https://images.unsplash.com/photo-1657558045738-21507cf53606?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
 										 class="rounded-circle me-3" 
 										 style="width: 50px; height: 50px; object-fit: cover;" 
 										 alt="Mike Chen">
 									<div>
-										<h6 class="mb-0">Mike Chen</h6>
-										<small class="text-muted">Web Designer</small>
+										<h6 class="mb-0">J. Jonah Jameson</h6>
+										<small class="text-muted">Daily Bugle Editor</small>
 									</div>
 								</div>
 							</div>
@@ -237,15 +237,15 @@
 								<div class="mb-3">
 									<span class="text-warning">★★★★★</span>
 								</div>
-								<p class="card-text mb-4">"Bootstrap's documentation is excellent. I can quickly find what I need and implement it right away."</p>
+								<p class="card-text mb-4">"Spider-Man's heroic spirit is inspiring. He shows us that anyone can be a hero with great responsibility."</p>
 								<div class="d-flex align-items-center">
 									<img src="https://images.unsplash.com/photo-1590341328520-63256eb32bc3?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
 										 class="rounded-circle me-3" 
 										 style="width: 50px; height: 50px; object-fit: cover;" 
 										 alt="Emily Rodriguez">
 									<div>
-										<h6 class="mb-0">Emily Rodriguez</h6>
-										<small class="text-muted">Full Stack Developer</small>
+										<h6 class="mb-0">Aunt May Parker</h6>
+										<small class="text-muted">Peter's Guardian</small>
 									</div>
 								</div>
 							</div>
@@ -260,8 +260,8 @@
 			<div class="container text-center">
 				<div class="row justify-content-center">
 					<div class="col-lg-8">
-						<h2 class="display-5 fw-bold mb-3">Ready to Get Started?</h2>
-						<p class="lead mb-4">Join millions of developers who are already building amazing websites with Bootstrap.</p>
+						<h2 class="display-5 fw-bold mb-3">Ready to Be a Hero?</h2>
+						<p class="lead mb-4">Join Spider-Man and millions of fans who believe that with great power comes great responsibility.</p>
 						<div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
 							<a href="register.php" class="btn btn-light btn-lg px-5">Start Building</a>
 							<a href="login.php" class="btn btn-outline-light btn-lg px-5">Sign In</a>
@@ -278,7 +278,7 @@
 				<div class="row">
 					<div class="col-lg-4 mb-4 mb-lg-0">
 						<h5 class="mb-3">ELPHP-JASH</h5>
-						<p class="text-light">Building amazing web experiences with Bootstrap. Your trusted partner for modern web development and design solutions.</p>
+						<p class="text-light">Your friendly neighborhood Spider-Man fan site. With great power comes great responsibility - and great web development!</p>
 						<div class="social-links">
 							<a href="#" class="text-white me-3" style="text-decoration: none;"><i style="font-size: 20px;">📘</i></a>
 							<a href="#" class="text-white me-3" style="text-decoration: none;"><i style="font-size: 20px;">🐦</i></a>
