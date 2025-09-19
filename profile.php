@@ -29,6 +29,56 @@ if ($view === 'details') {
     $isRegistrationView = false;
 }
 
+// Initialize cart if not exists
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
+
+// Spider-Man themed products
+$products = [
+    1 => ['name' => 'Spider-Man Web Shooters', 'price' => 299.99, 'description' => 'High-tech web shooters like Peter Parker uses', 'image' => '🕸️'],
+    2 => ['name' => 'Spider Suit (Classic)', 'price' => 599.99, 'description' => 'Classic red and blue Spider-Man suit', 'image' => '🕷️'],
+    3 => ['name' => 'Spider Sense Tracker', 'price' => 199.99, 'description' => 'Early warning system for danger detection', 'image' => '⚡'],
+    4 => ['name' => 'Web Fluid Cartridges', 'price' => 49.99, 'description' => 'Refill cartridges for web shooters (Pack of 6)', 'image' => '🧪'],
+    5 => ['name' => 'Spider-Man Mask', 'price' => 89.99, 'description' => 'Authentic Spider-Man mask with web pattern', 'image' => '🎭'],
+    6 => ['name' => 'Wall Crawling Gloves', 'price' => 149.99, 'description' => 'Special gloves for enhanced grip and climbing', 'image' => '🧤']
+];
+
+// Handle product details view
+$productId = isset($_GET['id']) ? (int)$_GET['id'] : null;
+$viewingProduct = $productId && isset($products[$productId]) ? $products[$productId] : null;
+
+// Handle add to cart
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'])) {
+    $productId = (int)$_POST['product_id'];
+    if (isset($products[$productId])) {
+        if (!isset($_SESSION['cart'][$productId])) {
+            $_SESSION['cart'][$productId] = 0;
+        }
+        $_SESSION['cart'][$productId]++;
+        $cartMessage = "Added {$products[$productId]['name']} to your hero kit!";
+    }
+}
+
+// Handle remove from cart
+if (isset($_GET['remove_from_cart'])) {
+    $removeId = (int)$_GET['remove_from_cart'];
+    if (isset($_SESSION['cart'][$removeId])) {
+        unset($_SESSION['cart'][$removeId]);
+        $cartMessage = "Removed item from your hero kit!";
+    }
+}
+
+// Calculate cart total
+$cartTotal = 0;
+$cartCount = 0;
+foreach ($_SESSION['cart'] as $id => $quantity) {
+    if (isset($products[$id])) {
+        $cartTotal += $products[$id]['price'] * $quantity;
+        $cartCount += $quantity;
+    }
+}
+
 // Handle logout
 if (isset($_GET['logout'])) {
     session_destroy();
@@ -46,134 +96,382 @@ if (isset($_GET['clear_registration'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title><?php echo $isRegistrationView ? 'ELPHP-JASH - Registration Profile' : 'ELPHP-JASH - User Profile'; ?></title>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $isRegistrationView ? 'ELPHP-JASH - Registration Profile' : 'ELPHP-JASH - User Profile'; ?></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0d1421 0%, #1a252f 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .navbar {
+            background: rgba(13, 20, 33, 0.95) !important;
+            border-bottom: 3px solid #e31e24;
+        }
+        
+        .navbar-brand {
+            color: #e31e24 !important;
+            font-weight: bold;
+        }
+        
+        .nav-link {
+            color: #fff !important;
+        }
+        
+        .nav-link.active {
+            color: #e31e24 !important;
+        }
+        
+        .profile-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(227, 30, 36, 0.1);
+            color: #333;
+        }
+        
+        .spider-logo {
+            font-size: 3rem;
+            color: #e31e24;
+            margin-bottom: 1rem;
+        }
+        
+        .btn-spidey {
+            background: linear-gradient(135deg, #e31e24 0%, #b71c1c 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-spidey:hover {
+            background: linear-gradient(135deg, #b71c1c 0%, #e31e24 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(227, 30, 36, 0.4);
+        }
+        
+        .btn-outline-spidey {
+            border: 2px solid #e31e24;
+            color: #e31e24;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-spidey:hover {
+            background: #e31e24;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .text-spidey {
+            color: #e31e24 !important;
+        }
+        
+        .table-spidey {
+            background: rgba(227, 30, 36, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .table-spidey th {
+            background: rgba(227, 30, 36, 0.1);
+            color: #333;
+            font-weight: 600;
+            border: none;
+        }
+        
+        .table-spidey td {
+            border: none;
+            padding: 15px;
+        }
+        
+        .product-card {
+            background: rgba(227, 30, 36, 0.05);
+            border: 1px solid rgba(227, 30, 36, 0.2);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(227, 30, 36, 0.3);
+        }
+        
+        .cart-badge {
+            background: #e31e24;
+            border-radius: 50%;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            min-width: 20px;
+            height: 20px;
+            font-size: 12px;
+        }
+        
+        .demo-section {
+            background: rgba(227, 30, 36, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(227, 30, 36, 0.2);
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .card-header {
+            background: rgba(227, 30, 36, 0.1) !important;
+            border-bottom: 2px solid rgba(227, 30, 36, 0.3) !important;
+        }
+    </style>
 </head>
 <body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="index.php">ELPHP-JASH</a>
-				<div class="collapse navbar-collapse">
-					<ul class="navbar-nav ms-auto">
-						<li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-						<?php if ($isRegistrationView): ?>
-							<li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
-							<li class="nav-item"><a class="nav-link active" href="#">Profile</a></li>
-							<li class="nav-item"><a class="nav-link" href="profile.php?view=details&clear_registration=1">Clear & Return</a></li>
-						<?php else: ?>
-							<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-							<li class="nav-item"><a class="nav-link active" href="#">Profile</a></li>
-							<li class="nav-item"><a class="nav-link" href="profile.php?user=<?php echo $user['id']; ?>&logout=1">Logout</a></li>
-						<?php endif; ?>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		
-		<div class="container mt-5">
-			<div class="row justify-content-center">
-				<div class="col-md-8">
-					<div class="card">
-						<div class="card-header">
-							<?php if ($isRegistrationView): ?>
-								<h4>Registration Complete!</h4>
-								<small class="text-muted">Displaying details from registration form</small>
-							<?php else: ?>
-								<h4>Welcome, <?php echo htmlspecialchars($user['name']); ?>!</h4>
-							<?php endif; ?>
-						</div>
-						<div class="card-body">
-							<?php if ($isRegistrationView): ?>
-								<h5>Your Registration Details</h5>
-								<table class="table">
-									<tr>
-										<td><strong>Full Name:</strong></td>
-										<td><?php echo htmlspecialchars($registered_user['name']); ?></td>
-									</tr>
-									<tr>
-										<td><strong>Age:</strong></td>
-										<td><?php echo htmlspecialchars($registered_user['age']); ?> years old</td>
-									</tr>
-									<tr>
-										<td><strong>Email:</strong></td>
-										<td><?php echo htmlspecialchars($registered_user['email']); ?></td>
-									</tr>
-									<tr>
-										<td><strong>Registered:</strong></td>
-										<td><?php echo htmlspecialchars($registered_user['registration_time']); ?></td>
-									</tr>
-								</table>
-							<?php else: ?>
-								<h5>Your Profile Information</h5>
-								<table class="table">
-									<tr>
-										<td><strong>Name:</strong></td>
-										<td><?php echo htmlspecialchars($user['name']); ?></td>
-									</tr>
-									<tr>
-										<td><strong>Email:</strong></td>
-										<td><?php echo htmlspecialchars($user['email']); ?></td>
-									</tr>
-									<tr>
-										<td><strong>User ID:</strong></td>
-										<td><?php echo htmlspecialchars($user['id']); ?></td>
-									</tr>
-									<tr>
-										<td><strong>Role:</strong></td>
-										<td><?php echo htmlspecialchars($user['role']); ?></td>
-									</tr>
-								</table>
-							<?php endif; ?>
-							
-							<hr>
-							
-							<h5>PHP Lab Demo</h5>
-							<div class="row">
-								<div class="col-md-4">
-									<h6 class="text-primary">POST Method ✓</h6>
-									<?php if ($isRegistrationView): ?>
-										<p class="small">Registration form used POST to send name, age, email.</p>
-									<?php else: ?>
-										<p class="small">Login form used POST to send data securely.</p>
-									<?php endif; ?>
-								</div>
-								<div class="col-md-4">
-									<h6 class="text-success">GET Method ✓</h6>
-									<?php if ($isRegistrationView): ?>
-										<p class="small">URL parameter: ?view=details</p>
-									<?php else: ?>
-										<p class="small">URL parameter: ?user=<?php echo $userId; ?></p>
-									<?php endif; ?>
-								</div>
-								<div class="col-md-4">
-									<h6 class="text-warning">SESSION ✓</h6>
-									<?php if ($isRegistrationView): ?>
-										<p class="small">Registration data stored in $_SESSION['registered_user'].</p>
-									<?php else: ?>
-										<p class="small">User data stored in session across pages.</p>
-									<?php endif; ?>
-								</div>
-							</div>
-							
-							<div class="mt-4">
-								<?php if ($isRegistrationView): ?>
-									<a href="register.php" class="btn btn-secondary">Back to Register</a>
-									<a href="login.php" class="btn btn-primary">Go to Login</a>
-									<a href="profile.php?view=details&clear_registration=1" class="btn btn-danger">Clear Registration</a>
-								<?php else: ?>
-									<a href="login.php" class="btn btn-secondary">Back to Login</a>
-									<a href="profile.php?user=<?php echo $user['id']; ?>&logout=1" class="btn btn-danger">Logout</a>
-								<?php endif; ?>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php">🕷️ ELPHP-JASH</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                    <?php if ($isRegistrationView): ?>
+                        <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="profile.php?view=details&clear_registration=1">Clear & Return</a></li>
+                    <?php else: ?>
+                        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#">Profile</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link position-relative" href="#cart">
+                                🛒 Hero Kit
+                                <?php if ($cartCount > 0): ?>
+                                    <span class="cart-badge badge text-white d-flex align-items-center justify-content-center"><?php echo $cartCount; ?></span>
+                                <?php endif; ?>
+                            </a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="profile.php?user=<?php echo $user['id']; ?>&logout=1">Logout</a></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+        <?php if (isset($cartMessage)): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                🕷️ <?php echo htmlspecialchars($cartMessage); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php endif; ?>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="card profile-card border-0">
+                    <div class="card-header text-center">
+                        <div class="spider-logo">🕷️</div>
+                        <?php if ($isRegistrationView): ?>
+                            <h4 class="text-spidey fw-bold">Hero Registration Complete!</h4>
+                            <small class="text-muted">Welcome to the Spider-Verse</small>
+                        <?php else: ?>
+                            <h4 class="text-spidey fw-bold">Welcome Hero, <?php echo htmlspecialchars($user['name']); ?>!</h4>
+                            <small class="text-muted">Your web of information & hero gear</small>
+                        <?php endif; ?>
+                    </div>
+                    <div class="card-body p-5">
+                        <!-- User Details Section -->
+                        <?php if ($isRegistrationView): ?>
+                            <h5 class="text-spidey mb-4">🕸️ Your Hero Details</h5>
+                            <table class="table table-spidey">
+                                <tr>
+                                    <th style="width: 30%;">Hero Name:</th>
+                                    <td><?php echo htmlspecialchars($registered_user['name']); ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Age:</th>
+                                    <td><?php echo htmlspecialchars($registered_user['age']); ?> years old</td>
+                                </tr>
+                                <tr>
+                                    <th>Email:</th>
+                                    <td><?php echo htmlspecialchars($registered_user['email']); ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Joined the Web:</th>
+                                    <td><?php echo htmlspecialchars($registered_user['registration_time']); ?></td>
+                                </tr>
+                            </table>
+                        <?php else: ?>
+                            <h5 class="text-spidey mb-4">🕸️ Your Hero Profile</h5>
+                            <table class="table table-spidey">
+                                <tr>
+                                    <th style="width: 30%;">Hero Name:</th>
+                                    <td><?php echo htmlspecialchars($user['name']); ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Email:</th>
+                                    <td><?php echo htmlspecialchars($user['email']); ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Hero ID:</th>
+                                    <td><?php echo htmlspecialchars($user['id']); ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Role:</th>
+                                    <td><?php echo htmlspecialchars($user['role']); ?></td>
+                                </tr>
+                            </table>
+                        <?php endif; ?>
+
+                        <?php if (!$isRegistrationView): ?>
+                            <!-- Product Catalog Section -->
+                            <hr class="my-5">
+                            
+                            <?php if ($viewingProduct): ?>
+                                <!-- Product Details View -->
+                                <h5 class="text-spidey mb-4">🛍️ Hero Gear Details</h5>
+                                <div class="product-card p-4 mb-4">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-2 text-center">
+                                            <div style="font-size: 4rem;"><?php echo $viewingProduct['image']; ?></div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <h4 class="text-spidey"><?php echo htmlspecialchars($viewingProduct['name']); ?></h4>
+                                            <p class="mb-2"><?php echo htmlspecialchars($viewingProduct['description']); ?></p>
+                                            <h5 class="text-spidey">$<?php echo number_format($viewingProduct['price'], 2); ?></h5>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <form method="POST" class="d-inline">
+                                                <input type="hidden" name="product_id" value="<?php echo $productId; ?>">
+                                                <button type="submit" name="add_to_cart" class="btn btn-spidey w-100 mb-2">Add to Kit</button>
+                                            </form>
+                                            <a href="profile.php?user=<?php echo $user['id']; ?>" class="btn btn-outline-spidey w-100">Back to Catalog</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php else: ?>
+                                <!-- Product Catalog -->
+                                <h5 class="text-spidey mb-4">🛍️ Spider-Man Hero Gear Catalog</h5>
+                                <div class="row g-3 mb-4">
+                                    <?php foreach ($products as $id => $product): ?>
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="product-card p-3 h-100">
+                                                <div class="text-center mb-3">
+                                                    <div style="font-size: 3rem;"><?php echo $product['image']; ?></div>
+                                                </div>
+                                                <h6 class="text-spidey"><?php echo htmlspecialchars($product['name']); ?></h6>
+                                                <p class="small mb-2"><?php echo htmlspecialchars($product['description']); ?></p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="text-spidey fw-bold">$<?php echo number_format($product['price'], 2); ?></span>
+                                                    <a href="profile.php?user=<?php echo $user['id']; ?>&id=<?php echo $id; ?>" class="btn btn-outline-spidey btn-sm">View Details</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <!-- Shopping Cart Section -->
+                            <div id="cart">
+                                <h5 class="text-spidey mb-4">🛒 Your Hero Kit (Cart)</h5>
+                                <?php if (empty($_SESSION['cart'])): ?>
+                                    <div class="text-center py-4">
+                                        <div style="font-size: 3rem; opacity: 0.5;">🕷️</div>
+                                        <p class="text-muted">Your hero kit is empty. Add some gear above!</p>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="table-responsive">
+                                        <table class="table table-spidey">
+                                            <thead>
+                                                <tr>
+                                                    <th>Item</th>
+                                                    <th>Price</th>
+                                                    <th>Quantity</th>
+                                                    <th>Total</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($_SESSION['cart'] as $id => $quantity): ?>
+                                                    <?php if (isset($products[$id])): ?>
+                                                        <tr>
+                                                            <td>
+                                                                <span style="font-size: 1.5rem;" class="me-2"><?php echo $products[$id]['image']; ?></span>
+                                                                <?php echo htmlspecialchars($products[$id]['name']); ?>
+                                                            </td>
+                                                            <td>$<?php echo number_format($products[$id]['price'], 2); ?></td>
+                                                            <td><?php echo $quantity; ?></td>
+                                                            <td class="text-spidey fw-bold">$<?php echo number_format($products[$id]['price'] * $quantity, 2); ?></td>
+                                                            <td>
+                                                                <a href="profile.php?user=<?php echo $user['id']; ?>&remove_from_cart=<?php echo $id; ?>" class="btn btn-outline-danger btn-sm">Remove</a>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th colspan="3">Total Hero Kit Value:</th>
+                                                    <th class="text-spidey">$<?php echo number_format($cartTotal, 2); ?></th>
+                                                    <th></th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
+                        
+                        <!-- PHP Demo Section -->
+                        <div class="demo-section">
+                            <h5 class="text-spidey mb-3">⚡ Web Powers Demo</h5>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h6 class="text-spidey">POST Method ✓</h6>
+                                    <?php if ($isRegistrationView): ?>
+                                        <p class="small">Registration form used POST to send hero data securely.</p>
+                                    <?php else: ?>
+                                        <p class="small">Add to cart uses POST. Cart has <?php echo $cartCount; ?> items.</p>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="text-spidey">GET Method ✓</h6>
+                                    <?php if ($isRegistrationView): ?>
+                                        <p class="small">URL parameter: ?view=details</p>
+                                    <?php else: ?>
+                                        <p class="small">Product details: <?php echo $viewingProduct ? "?id=$productId" : "Viewing catalog"; ?></p>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="text-spidey">SESSION ✓</h6>
+                                    <?php if ($isRegistrationView): ?>
+                                        <p class="small">Hero data stored in web session.</p>
+                                    <?php else: ?>
+                                        <p class="small">Cart stored in session: $<?php echo number_format($cartTotal, 2); ?> total.</p>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <?php if ($isRegistrationView): ?>
+                                <a href="register.php" class="btn btn-outline-spidey me-2">Back to Register</a>
+                                <a href="login.php" class="btn btn-spidey me-2">Swing to Login</a>
+                                <a href="profile.php?view=details&clear_registration=1" class="btn btn-outline-danger">Clear Registration</a>
+                            <?php else: ?>
+                                <a href="login.php" class="btn btn-outline-spidey me-2">Back to Login</a>
+                                <a href="profile.php?user=<?php echo $user['id']; ?>&logout=1" class="btn btn-spidey">Swing Out (Logout)</a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
