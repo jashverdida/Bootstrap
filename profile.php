@@ -101,110 +101,203 @@ if (isset($_GET['clear_registration'])) {
     <title><?php echo $isRegistrationView ? 'ELPHP-JASH - Registration Profile' : 'ELPHP-JASH - User Profile'; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        :root {
+            --spidey-red: #ff1744;
+            --spidey-blue: #1976d2;
+            --spidey-gold: #ffc107;
+            --spidey-dark: #0a0e1a;
+            --spidey-darker: #1a1f2e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background: linear-gradient(135deg, #0d1421 0%, #1a252f 100%);
+            background: linear-gradient(135deg, var(--spidey-dark) 0%, var(--spidey-darker) 100%);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
-            color: white;
+            position: relative;
+            overflow-x: hidden;
         }
-        
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 23, 68, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 193, 7, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(25, 118, 210, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: webPattern 20s ease-in-out infinite;
+        }
+
+        @keyframes webPattern {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            33% { transform: rotate(5deg) scale(1.1); }
+            66% { transform: rotate(-5deg) scale(0.9); }
+        }
+
         .navbar {
-            background: rgba(13, 20, 33, 0.95) !important;
-            border-bottom: 3px solid #e31e24;
+            background: rgba(10, 14, 26, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 23, 68, 0.3);
+            transition: all 0.3s ease;
         }
-        
+
         .navbar-brand {
-            color: #e31e24 !important;
+            color: var(--spidey-red) !important;
             font-weight: bold;
+            font-size: 1.4rem;
+            text-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
+            transition: all 0.3s ease;
         }
-        
+
+        .navbar-brand:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
+        }
+
         .nav-link {
-            color: #fff !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
         }
-        
-        .nav-link.active {
-            color: #e31e24 !important;
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--spidey-red) !important;
+            text-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
         }
-        
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--spidey-red);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
         .profile-card {
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.4),
-                0 0 0 1px rgba(227, 30, 36, 0.1);
-            color: #333;
+            transition: all 0.3s ease;
+            color: #ffffff;
         }
-        
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 23, 68, 0.3);
+            border-color: rgba(255, 23, 68, 0.5);
+        }
+
         .spider-logo {
             font-size: 3rem;
-            color: #e31e24;
+            color: var(--spidey-red);
             margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+            display: inline-block;
         }
-        
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
         .btn-spidey {
-            background: linear-gradient(135deg, #e31e24 0%, #b71c1c 100%);
+            background: linear-gradient(135deg, var(--spidey-red) 0%, #b71c1c 100%);
             border: none;
             border-radius: 12px;
             color: white;
             font-weight: 600;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 23, 68, 0.3);
         }
-        
+
         .btn-spidey:hover {
-            background: linear-gradient(135deg, #b71c1c 0%, #e31e24 100%);
+            background: linear-gradient(135deg, #b71c1c 0%, var(--spidey-red) 100%);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(227, 30, 36, 0.4);
+            box-shadow: 0 8px 25px rgba(255, 23, 68, 0.5);
+            color: white;
         }
-        
+
         .btn-outline-spidey {
-            border: 2px solid #e31e24;
-            color: #e31e24;
+            border: 2px solid var(--spidey-red);
+            color: var(--spidey-red);
+            background: transparent;
             border-radius: 12px;
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .btn-outline-spidey:hover {
-            background: #e31e24;
+            background: var(--spidey-red);
             color: white;
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 23, 68, 0.4);
         }
-        
+
         .text-spidey {
-            color: #e31e24 !important;
+            color: var(--spidey-red) !important;
+            font-weight: bold;
         }
-        
+
         .table-spidey {
-            background: rgba(227, 30, 36, 0.05);
+            background: rgba(255, 23, 68, 0.05);
             border-radius: 12px;
             overflow: hidden;
+            color: #ffffff;
         }
-        
+
         .table-spidey th {
-            background: rgba(227, 30, 36, 0.1);
-            color: #333;
+            background: rgba(255, 23, 68, 0.2);
+            color: #ffffff;
             font-weight: 600;
-            border: none;
-        }
-        
-        .table-spidey td {
             border: none;
             padding: 15px;
         }
-        
+
+        .table-spidey td {
+            border: none;
+            padding: 15px;
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         .product-card {
-            background: rgba(227, 30, 36, 0.05);
-            border: 1px solid rgba(227, 30, 36, 0.2);
+            background: rgba(255, 23, 68, 0.1);
+            border: 1px solid rgba(255, 23, 68, 0.3);
             border-radius: 15px;
             transition: all 0.3s ease;
+            color: #ffffff;
         }
-        
+
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(227, 30, 36, 0.3);
+            box-shadow: 0 15px 30px rgba(255, 23, 68, 0.4);
+            border-color: rgba(255, 23, 68, 0.6);
         }
-        
+
         .cart-badge {
-            background: #e31e24;
+            background: var(--spidey-red);
             border-radius: 50%;
             position: absolute;
             top: -5px;
@@ -212,26 +305,85 @@ if (isset($_GET['clear_registration'])) {
             min-width: 20px;
             height: 20px;
             font-size: 12px;
+            box-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
         }
-        
+
         .demo-section {
-            background: rgba(227, 30, 36, 0.05);
+            background: rgba(255, 23, 68, 0.1);
             border-radius: 15px;
-            border: 1px solid rgba(227, 30, 36, 0.2);
+            border: 1px solid rgba(255, 23, 68, 0.3);
             padding: 20px;
             margin: 20px 0;
+            backdrop-filter: blur(10px);
         }
-        
+
         .card-header {
-            background: rgba(227, 30, 36, 0.1) !important;
-            border-bottom: 2px solid rgba(227, 30, 36, 0.3) !important;
+            background: rgba(255, 23, 68, 0.1) !important;
+            border-bottom: 2px solid rgba(255, 23, 68, 0.3) !important;
+            border-radius: 20px 20px 0 0 !important;
+        }
+
+        .alert-success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid rgba(76, 175, 80, 0.4);
+            color: #ffffff;
+            backdrop-filter: blur(10px);
+        }
+
+        .text-muted {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        .web-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(45deg, transparent 30%, rgba(255, 23, 68, 0.05) 30%, rgba(255, 23, 68, 0.05) 70%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(255, 193, 7, 0.05) 30%, rgba(255, 193, 7, 0.05) 70%, transparent 70%);
+            background-size: 100px 100px;
+            z-index: -1;
+            animation: webMove 30s linear infinite;
+        }
+
+        @keyframes webMove {
+            from { background-position: 0 0, 0 0; }
+            to { background-position: 100px 100px, -100px 100px; }
+        }
+
+        .btn-outline-danger {
+            border-color: #dc3545;
+            color: #dc3545;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-danger:hover {
+            background: #dc3545;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .spider-logo {
+                font-size: 2.5rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">🕷️ ELPHP-JASH</a>
+    <div class="web-pattern"></div>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">� ELPHP-JASH</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -261,10 +413,10 @@ if (isset($_GET['clear_registration'])) {
         </div>
     </nav>
     
-    <div class="container mt-5">
+    <div class="container" style="padding-top: 100px;">
         <?php if (isset($cartMessage)): ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                🕷️ <?php echo htmlspecialchars($cartMessage); ?>
+                � <?php echo htmlspecialchars($cartMessage); ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         <?php endif; ?>

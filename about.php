@@ -3,62 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELPHP-JASH - About</title>
+    <title>About - ELPHP-JASH</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        :root {
+            --spidey-red: #ff1744;
+            --spidey-blue: #1976d2;
+            --spidey-gold: #ffc107;
+            --spidey-dark: #0a0e1a;
+            --spidey-darker: #1a1f2e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background: linear-gradient(135deg, #0d1421 0%, #1a252f 100%);
+            background: linear-gradient(135deg, var(--spidey-dark) 0%, var(--spidey-darker) 100%);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
-            color: white;
+            position: relative;
+            overflow-x: hidden;
         }
-        
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 23, 68, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 193, 7, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(25, 118, 210, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: webPattern 20s ease-in-out infinite;
+        }
+
+        @keyframes webPattern {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            33% { transform: rotate(5deg) scale(1.1); }
+            66% { transform: rotate(-5deg) scale(0.9); }
+        }
+
         .navbar {
-            background: rgba(13, 20, 33, 0.95) !important;
-            border-bottom: 3px solid #e31e24;
+            background: rgba(0, 0, 0, 0.95) !important;
+            border-bottom: 2px solid #ff1744;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
-        
+
         .navbar-brand {
-            color: #e31e24 !important;
+            color: #ff1744 !important;
             font-weight: bold;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-        
+
         .nav-link {
             color: #fff !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
-        
+
+        .nav-link:hover {
+            color: #ff1744 !important;
+            transform: translateY(-2px);
+        }
+
         .nav-link.active {
-            color: #e31e24 !important;
+            color: #ff1744 !important;
         }
-        
-        .about-card {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 20px;
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.4),
-                0 0 0 1px rgba(227, 30, 36, 0.1);
-            color: #333;
+
+        .main-content {
+            padding-top: 100px;
+            padding-bottom: 50px;
         }
-        
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--spidey-red), var(--spidey-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(255, 23, 68, 0.5)); }
+            to { filter: drop-shadow(0 0 30px rgba(255, 193, 7, 0.5)); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
         .spider-logo {
             font-size: 4rem;
-            color: #e31e24;
+            animation: pulse 2s infinite;
             margin-bottom: 1rem;
+            display: inline-block;
         }
-        
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 23, 68, 0.2);
+            border-color: rgba(255, 23, 68, 0.4);
+        }
+
         .text-spidey {
-            color: #e31e24 !important;
+            color: var(--spidey-red);
+            font-weight: bold;
         }
-        
-        footer {
-            background: rgba(13, 20, 33, 0.95) !important;
-            border-top: 3px solid #e31e24;
+
+        .footer {
+            background: rgba(10, 14, 26, 0.9);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 23, 68, 0.3);
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .spider-logo {
+                font-size: 3rem;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">🕷️ ELPHP-JASH</a>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">🕸 SPIDER-MAN</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -68,55 +181,44 @@
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="about.php">About</a>
+                        <a class="nav-link active" aria-current="page" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="register.php">Register</a>
+                        <a class="nav-link" href="register.php">Join</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="row justify-content-center align-items-center min-vh-100">
-            <div class="col-md-8 col-lg-6">
-                <div class="card about-card border-0">
+    <div class="container main-content">
+        <div class="hero-section">
+            <div class="spider-logo">🕷️</div>
+            <h1 class="hero-title">About ELPHP-JASH</h1>
+            <p class="hero-subtitle">Modern PHP development with Spider-Man style</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Main About Card -->
+                <div class="card about-card">
                     <div class="card-body p-5">
-                        <div class="text-center mb-4">
-                            <div class="spider-logo">🕷️</div>
-                            <h2 class="fw-bold mb-3">About Jash</h2>
-                            <p class="text-muted">Your friendly neighborhood developer</p>
-                        </div>
+                        <h2 class="card-title text-spidey mb-4">🕸️ Our Web Story</h2>
+                        <p class="card-text text-white mb-4">Welcome to the Spider-Verse Web - a cutting-edge Bootstrap practice website that combines the thrilling world of Spider-Man with modern web development. This project showcases advanced PHP techniques, responsive design, and cinematic user experiences.</p>
                         
-                        <div class="mb-4">
-                            <p class="card-text">Hey there! I'm <span class="text-spidey fw-bold">Jash Verdida</span>, a passionate web developer who believes that coding is like having superpowers. Just like Spider-Man swings through New York City, I navigate through lines of code to create amazing web experiences.</p>
-                            
-                            <p class="card-text">Spider-Man has always been my favorite superhero because he represents the everyday person who gains extraordinary abilities but never forgets his responsibility to help others. As a developer, I try to apply the same principle - using my coding skills to build solutions that make people's lives better.</p>
-                            
-                            <p class="card-text">When I'm not coding, you'll probably find me watching Spider-Man movies, reading comics, or working on projects like <span class="text-spidey">EXPoints</span> and exploring new technologies. Every line of code I write is infused with the spirit of <em>"With great power comes great responsibility."</em></p>
-                        </div>
-                        
-                        <div class="text-center">
-                            <p class="small text-muted mb-3">
-                                <em>"With great power comes great responsibility"</em><br>
-                                - Uncle Ben (and my coding philosophy)
-                            </p>
-                            <a href="index.php" class="btn btn-outline-danger me-2">🏠 Back Home</a>
-                            <a href="login.php" class="btn" style="background: linear-gradient(135deg, #e31e24 0%, #b71c1c 100%); color: white; border-radius: 12px;">🕸️ Join Me</a>
-                        </div>
+                        <p class="card-text text-white mb-0">Built with the speed and agility of your friendly neighborhood web-crawler, our platform demonstrates the perfect fusion of style and functionality. Every component has been crafted with the same precision Spider-Man uses to navigate the urban jungle.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="text-white text-center py-4">
+    <footer class="footer">
         <div class="container">
-            <span>&copy; 2025 ELPHP-JASH | Jash Verdida's Friendly Neighborhood Web</span>
+            <span>🕸️ &copy; 2025 ELPHP-JASH - With Great Power Comes Great Responsibility</span>
         </div>
     </footer>
 
