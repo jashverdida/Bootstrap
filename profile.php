@@ -380,7 +380,7 @@ if (isset($_GET['clear_registration'])) {
     
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.php">WEB LOGO ELPHP-JASH</a>
+            <a class="navbar-brand" href="index.php">🕸 ELPHP-JASH</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -455,7 +455,7 @@ if (isset($_GET['clear_registration'])) {
                             </table>
                         <?php else: ?>
                             <h5 class="text-spidey mb-4">🕸️ Your Hero Profile</h5>
-                            <table class="table table-spidey">
+                            <table class="table table-spidey light-table">
                                 <tr>
                                     <th style="width: 30%;">Hero Name:</th>
                                     <td><?php echo htmlspecialchars($user['name']); ?></td>
