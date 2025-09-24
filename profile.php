@@ -282,6 +282,13 @@ if (isset($_GET['clear_registration'])) {
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        /* For registration/details view where right-side cells use a white background,
+           use dark text so information is readable */
+        .table-spidey.light-table td {
+            color: #111 !important;
+            background: #ffffff;
+        }
+
         .product-card {
             background: rgba(255, 23, 68, 0.1);
             border: 1px solid rgba(255, 23, 68, 0.3);
@@ -438,7 +445,7 @@ if (isset($_GET['clear_registration'])) {
                         <!-- User Details Section -->
                         <?php if ($isRegistrationView): ?>
                             <h5 class="text-spidey mb-4">🕸️ Your Hero Details</h5>
-                            <table class="table table-spidey">
+                            <table class="table table-spidey light-table">
                                 <tr>
                                     <th style="width: 30%;">Hero Name:</th>
                                     <td><?php echo htmlspecialchars($registered_user['name']); ?></td>
