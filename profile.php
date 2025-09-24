@@ -281,12 +281,23 @@ if (isset($_GET['clear_registration'])) {
             .profile-card .table-spidey.light-table th,
             .profile-card .table-spidey.light-table td {
                 color: #111 !important;
+                -webkit-text-fill-color: #111 !important;
                 background: #ffffff !important;
             }
 
+            /* Force all descendants (links, spans, inputs) to dark text */
             .profile-card .table-spidey.light-table td,
-            .profile-card .table-spidey.light-table td * {
+            .profile-card .table-spidey.light-table td *,
+            .profile-card .table-spidey.light-table td input,
+            .profile-card .table-spidey.light-table td textarea {
                 color: #111 !important;
+                -webkit-text-fill-color: #111 !important;
+            }
+
+            /* Selection inside light-table should remain readable */
+            .profile-card .table-spidey.light-table td ::selection {
+                color: #111 !important;
+                background: rgba(0,0,0,0.08) !important;
             }
 
         .product-card {
