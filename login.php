@@ -311,7 +311,7 @@ $hasRegisteredUsers = !empty($users);
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.php">� ELPHP-JASH</a>
+            <a class="navbar-brand" href="index.php">🕸 ELPHP-JASH</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -335,7 +335,7 @@ $hasRegisteredUsers = !empty($users);
                     <div class="card login-card border-0">
                         <div class="card-body p-5">
                             <div class="text-center mb-4">
-                                <div class="spider-logo">�</div>
+                                <div class="spider-logo">🕷️</div>
                                 <h2 class="login-title mb-3">Welcome Back</h2>
                                 <p class="text-light opacity-75">Your friendly neighborhood login</p>
                             </div>
