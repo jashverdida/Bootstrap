@@ -495,7 +495,7 @@ if (isset($_GET['clear_registration'])) {
                                             <h5 class="text-spidey">$<?php echo number_format($viewingProduct['price'], 2); ?></h5>
                                         </div>
                                         <div class="col-md-3">
-                                            <?php if (isset($_SESSION['user'])): ?>
+                                            <?php if (isset($_SESSION['user']) && isset($user['role']) && $user['role'] !== 'Guest Hero'): ?>
                                                 <form method="POST" class="d-inline">
                                                     <input type="hidden" name="product_id" value="<?php echo $productId; ?>">
                                                     <button type="submit" name="add_to_cart" class="btn btn-spidey w-100 mb-2">Add to Kit</button>
