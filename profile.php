@@ -131,12 +131,8 @@ if (isset($_GET['clear_registration'])) {
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(255, 23, 68, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 193, 7, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(25, 118, 210, 0.1) 0%, transparent 50%);
+            background: linear-gradient(180deg, rgba(10,14,26,0.95), rgba(26,31,46,0.95));
             z-index: -1;
-            animation: webPattern 20s ease-in-out infinite;
         }
 
         @keyframes webPattern {
@@ -282,19 +278,16 @@ if (isset($_GET['clear_registration'])) {
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-            .table-spidey.light-table th,
-            .table-spidey.light-table td {
+            .profile-card .table-spidey.light-table th,
+            .profile-card .table-spidey.light-table td {
                 color: #111 !important;
                 background: #ffffff !important;
             }
 
-            /* Ensure any form controls or inputs inside light-table also use dark text */
-            .table-spidey.light-table input,
-            .table-spidey.light-table .form-control,
-            .table-spidey.light-table a,
-            .table-spidey.light-table span {
+            .profile-card .table-spidey.light-table td,
+            .profile-card .table-spidey.light-table td * {
                 color: #111 !important;
-        }
+            }
 
         .product-card {
             background: rgba(255, 23, 68, 0.1);
@@ -349,17 +342,7 @@ if (isset($_GET['clear_registration'])) {
         }
 
         .web-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(45deg, transparent 30%, rgba(255, 23, 68, 0.05) 30%, rgba(255, 23, 68, 0.05) 70%, transparent 70%),
-                linear-gradient(-45deg, transparent 30%, rgba(255, 193, 7, 0.05) 30%, rgba(255, 193, 7, 0.05) 70%, transparent 70%);
-            background-size: 100px 100px;
-            z-index: -1;
-            animation: webMove 30s linear infinite;
+            display: none;
         }
 
         @keyframes webMove {
@@ -397,7 +380,7 @@ if (isset($_GET['clear_registration'])) {
     
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.php">� ELPHP-JASH</a>
+            <a class="navbar-brand" href="index.php">WEB LOGO ELPHP-JASH</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
