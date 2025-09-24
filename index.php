@@ -403,7 +403,7 @@
                             <li class="mb-2"><span class="text-spidey me-2">✓</span> Precognitive spider-sense</li>
                             <li class="mb-2"><span class="text-spidey me-2">✓</span> And much more...</li>
                         </ul>
-                        <a href="dashboard.php" class="btn btn-spidey btn-lg">View Dashboard</a>
+                        <a href="about.php" class="btn btn-spidey btn-lg">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -540,7 +540,7 @@
                     <ul class="list-unstyled">
                         <li><a href="index.php" class="text-light text-decoration-none">Home</a></li>
                         <li><a href="about.php" class="text-light text-decoration-none">About</a></li>
-                        <li><a href="dashboard.php" class="text-light text-decoration-none">Dashboard</a></li>
+                        <!-- Dashboard removed -->
                         <li><a href="login.php" class="text-light text-decoration-none">Login</a></li>
                         <li><a href="register.php" class="text-light text-decoration-none">Register</a></li>
                     </ul>
