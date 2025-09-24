@@ -302,7 +302,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="spider-logo">🕷️</div>
                                 <h2 class="register-title mb-3">Join the Web</h2>
                                 <p class="text-light opacity-75">Become a friendly neighborhood hero</p>
-                            
+                            </div>
+
                             <?php if ($error): ?>
                                 <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
                             <?php endif; ?>
