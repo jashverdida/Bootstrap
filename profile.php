@@ -500,6 +500,8 @@ if (isset($_GET['clear_registration'])) {
                                                     <input type="hidden" name="product_id" value="<?php echo $productId; ?>">
                                                     <button type="submit" name="add_to_cart" class="btn btn-spidey w-100 mb-2">Add to Kit</button>
                                                 </form>
+                                            <?php endif; ?>
+                                            <?php if (isset($_SESSION['user'])): ?>
                                                 <a href="profile.php?user=<?php echo isset($user['id']) ? $user['id'] : '' ?>" class="btn btn-outline-spidey w-100">Back to Catalog</a>
                                             <?php endif; ?>
                                         </div>
