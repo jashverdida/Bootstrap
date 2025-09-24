@@ -23,6 +23,13 @@ function saveUsers($users) {
     file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT));
 }
 
+// Clear registration session for retry
+if (isset($_GET['clear_registration'])) {
+    unset($_SESSION['registered_user']);
+    header("Location: register.php");
+    exit;
+}
+
 // POST handling for registration
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['fullName'] ?? '');
