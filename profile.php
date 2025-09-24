@@ -281,23 +281,12 @@ if (isset($_GET['clear_registration'])) {
             .profile-card .table-spidey.light-table th,
             .profile-card .table-spidey.light-table td {
                 color: #111 !important;
-                -webkit-text-fill-color: #111 !important;
                 background: #ffffff !important;
             }
 
-            /* Force all descendants (links, spans, inputs) to dark text */
             .profile-card .table-spidey.light-table td,
-            .profile-card .table-spidey.light-table td *,
-            .profile-card .table-spidey.light-table td input,
-            .profile-card .table-spidey.light-table td textarea {
+            .profile-card .table-spidey.light-table td * {
                 color: #111 !important;
-                -webkit-text-fill-color: #111 !important;
-            }
-
-            /* Selection inside light-table should remain readable */
-            .profile-card .table-spidey.light-table td ::selection {
-                color: #111 !important;
-                background: rgba(0,0,0,0.08) !important;
             }
 
         .product-card {
@@ -448,40 +437,42 @@ if (isset($_GET['clear_registration'])) {
                             <h5 class="text-spidey mb-4">🕸️ Your Hero Details</h5>
                             <table class="table table-spidey light-table">
                                 <tr>
-                                    <th style="width: 30%;">Hero Name:</th>
-                                    <td style="color:#111 !important; background:#ffffff;"><span style="color:#111"><?php echo htmlspecialchars($registered_user['name']); ?></span></td>
+                                    <th style="width: 30%">Hero Name:</th>
+                                    <td style="color:#111 !important; background:#fff;"><span style="color:#111"><?php echo htmlspecialchars($registered_user['name']); ?></span></td>
                                 </tr>
                                 <tr>
                                     <th>Age:</th>
-                                    <td style="color:#111 !important; background:#ffffff;"><span style="color:#111"><?php echo htmlspecialchars($registered_user['age']); ?> years old</span></td>
+                                    <td style="color:#111 !important; background:#fff;"><span style="color:#111"><?php echo htmlspecialchars($registered_user['age']); ?> years old</span></td>
                                 </tr>
                                 <tr>
                                     <th>Email:</th>
-                                    <td style="color:#111 !important; background:#ffffff;"><span style="color:#111"><?php echo htmlspecialchars($registered_user['email']); ?></span></td>
+                                    <td style="color:#111 !important; background:#fff;"><span style="color:#111"><?php echo htmlspecialchars($registered_user['email']); ?></span></td>
                                 </tr>
                                 <tr>
                                     <th>Joined the Web:</th>
-                                    <td style="color:#111 !important; background:#ffffff;"><span style="color:#111"><?php echo htmlspecialchars($registered_user['registration_time']); ?></span></td>
+                                    <td style="color:#111 !important; background:#fff;"><span style="color:#111"><?php echo htmlspecialchars($registered_user['registration_time']); ?></span></td>
                                 </tr>
+                            </table>
+                        <?php endif; ?>
+
+                        <?php if (!$isRegistrationView): ?>
+                            <h5 class="text-spidey mb-4">🕸️ Your Hero Profile</h5>
+                            <table class="table table-spidey light-table">
                                 <tr>
                                     <th style="width: 30%">Hero Name:</th>
-                                    <td style="color:#111 !important; background:#ffffff;"><span style="color:#111"><?php echo htmlspecialchars($user['name']); ?></span></td>
+                                    <td style="color:#111 !important; background:#fff;"><span style="color:#111"><?php echo htmlspecialchars($user['name']); ?></span></td>
                                 </tr>
                                 <tr>
                                     <th>Email:</th>
-                                    <td style="color:#111 !important; background:#ffffff;"><span style="color:#111"><?php echo htmlspecialchars($user['email']); ?></span></td>
+                                    <td style="color:#111 !important; background:#fff;"><span style="color:#111"><?php echo htmlspecialchars($user['email']); ?></span></td>
                                 </tr>
                                 <tr>
                                     <th>Hero ID:</th>
-                                    <td style="color:#111 !important; background:#ffffff;"><span style="color:#111"><?php echo htmlspecialchars($user['id']); ?></span></td>
+                                    <td style="color:#111 !important; background:#fff;"><span style="color:#111"><?php echo htmlspecialchars($user['id']); ?></span></td>
                                 </tr>
                                 <tr>
                                     <th>Role:</th>
-                                    <td style="color:#111 !important; background:#ffffff;"><span style="color:#111"><?php echo htmlspecialchars($user['role']); ?></span></td>
-                                </tr>
-                                <tr>
-                                    <th>Role:</th>
-                                    <td><?php echo htmlspecialchars($user['role']); ?></td>
+                                    <td style="color:#111 !important; background:#fff;"><span style="color:#111"><?php echo htmlspecialchars($user['role']); ?></span></td>
                                 </tr>
                             </table>
                         <?php endif; ?>
