@@ -438,35 +438,35 @@ if (isset($_GET['clear_registration'])) {
                             <table class="table table-spidey light-table">
                                 <tr>
                                     <th style="width: 30%;">Hero Name:</th>
-                                    <td><?php echo htmlspecialchars($registered_user['name']); ?></td>
+                                    <td><span style="color:#111"><?php echo htmlspecialchars($registered_user['name']); ?></span></td>
                                 </tr>
                                 <tr>
                                     <th>Age:</th>
-                                    <td><?php echo htmlspecialchars($registered_user['age']); ?> years old</td>
+                                    <td><span style="color:#111"><?php echo htmlspecialchars($registered_user['age']); ?> years old</span></td>
                                 </tr>
                                 <tr>
                                     <th>Email:</th>
-                                    <td><?php echo htmlspecialchars($registered_user['email']); ?></td>
+                                    <td><span style="color:#111"><?php echo htmlspecialchars($registered_user['email']); ?></span></td>
                                 </tr>
                                 <tr>
                                     <th>Joined the Web:</th>
-                                    <td><?php echo htmlspecialchars($registered_user['registration_time']); ?></td>
+                                    <td><span style="color:#111"><?php echo htmlspecialchars($registered_user['registration_time']); ?></span></td>
                                 </tr>
-                            </table>
-                        <?php else: ?>
-                            <h5 class="text-spidey mb-4">🕸️ Your Hero Profile</h5>
-                            <table class="table table-spidey light-table">
                                 <tr>
-                                    <th style="width: 30%;">Hero Name:</th>
-                                    <td><?php echo htmlspecialchars($user['name']); ?></td>
+                                    <th style="width: 30%">Hero Name:</th>
+                                    <td><span style="color:#111"><?php echo htmlspecialchars($user['name']); ?></span></td>
                                 </tr>
                                 <tr>
                                     <th>Email:</th>
-                                    <td><?php echo htmlspecialchars($user['email']); ?></td>
+                                    <td><span style="color:#111"><?php echo htmlspecialchars($user['email']); ?></span></td>
                                 </tr>
                                 <tr>
                                     <th>Hero ID:</th>
-                                    <td><?php echo htmlspecialchars($user['id']); ?></td>
+                                    <td><span style="color:#111"><?php echo htmlspecialchars($user['id']); ?></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Role:</th>
+                                    <td><span style="color:#111"><?php echo htmlspecialchars($user['role']); ?></span></td>
                                 </tr>
                                 <tr>
                                     <th>Role:</th>
