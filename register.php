@@ -5,7 +5,7 @@ $error = '';
 $success = '';
 
 // Simple file-based user storage
-$usersFile = 'users.json';
+$usersFile = __DIR__ . '/users.json';
 
 // Load existing users
 function loadUsers() {
