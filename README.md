@@ -48,9 +48,10 @@ This project fulfills the PHP lab activity requirements by implementing **POST**
 ├── register.php       # User registration form (POST)
 ├── login.php          # Login interface
 ├── profile.php        # User profile & shopping cart (GET/SESSION)
-├── dashboard.php      # Dashboard interface
 └── README.md          # This file
 ```
+
+Note: `dashboard.php` was removed from the project because it had no integration with the site's user, cart, or session flows. If you need a placeholder or redirect, we can add a small stub page that redirects to `index.php`.
 
 ## 🛠️ Technical Implementation
 
