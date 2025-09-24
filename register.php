@@ -299,7 +299,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="card register-card border-0">
                         <div class="card-body p-5">
                             <div class="text-center mb-4">
-                                <div class="spider-logo">�️</div>
+                                <div class="spider-logo">🕷️</div>
                                 <h2 class="register-title mb-3">Join the Web</h2>
                                 <p class="text-light opacity-75">Become a friendly neighborhood hero</p>
                             
