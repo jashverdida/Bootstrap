@@ -282,11 +282,18 @@ if (isset($_GET['clear_registration'])) {
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* For registration/details view where right-side cells use a white background,
-           use dark text so information is readable */
-        .table-spidey.light-table td {
-            color: #111 !important;
-            background: #ffffff;
+            .table-spidey.light-table th,
+            .table-spidey.light-table td {
+                color: #111 !important;
+                background: #ffffff !important;
+            }
+
+            /* Ensure any form controls or inputs inside light-table also use dark text */
+            .table-spidey.light-table input,
+            .table-spidey.light-table .form-control,
+            .table-spidey.light-table a,
+            .table-spidey.light-table span {
+                color: #111 !important;
         }
 
         .product-card {
@@ -543,7 +550,7 @@ if (isset($_GET['clear_registration'])) {
                                     </div>
                                 <?php else: ?>
                                     <div class="table-responsive">
-                                        <table class="table table-spidey">
+                                        <table class="table table-spidey light-table">
                                             <thead>
                                                 <tr>
                                                     <th>Item</th>
