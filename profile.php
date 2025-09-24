@@ -495,13 +495,13 @@ if (isset($_GET['clear_registration'])) {
                                             <h5 class="text-spidey">$<?php echo number_format($viewingProduct['price'], 2); ?></h5>
                                         </div>
                                         <div class="col-md-3">
-                                            <?php if (isset($user) && isset($user['role']) && $user['role'] !== 'guest'): ?>
+                                            <?php if (isset($_SESSION['user'])): ?>
                                                 <form method="POST" class="d-inline">
                                                     <input type="hidden" name="product_id" value="<?php echo $productId; ?>">
                                                     <button type="submit" name="add_to_cart" class="btn btn-spidey w-100 mb-2">Add to Kit</button>
                                                 </form>
                                             <?php endif; ?>
-                                            <a href="profile.php?user=<?php echo $user['id']; ?>" class="btn btn-outline-spidey w-100">Back to Catalog</a>
+                                            <a href="profile.php?user=<?php echo isset($user['id']) ? $user['id'] : '' ?>" class="btn btn-outline-spidey w-100">Back to Catalog</a>
                                         </div>
                                     </div>
                                 </div>
@@ -520,12 +520,6 @@ if (isset($_GET['clear_registration'])) {
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <span class="text-spidey fw-bold">$<?php echo number_format($product['price'], 2); ?></span>
                                                     <a href="profile.php?user=<?php echo $user['id']; ?>&id=<?php echo $id; ?>" class="btn btn-outline-spidey btn-sm">View Details</a>
-                                                    <?php if (isset($user) && isset($user['role']) && $user['role'] !== 'guest'): ?>
-                                                        <form method="POST" class="d-inline ms-2">
-                                                            <input type="hidden" name="product_id" value="<?php echo $id; ?>">
-                                                            <button type="submit" name="add_to_cart" class="btn btn-spidey btn-sm">Add to Kit</button>
-                                                        </form>
-                                                    <?php endif; ?>
                                                 </div>
                                             </div>
                                         </div>
